@@ -1,0 +1,31 @@
+{
+  "name": "react-checkbox-menu-tree",
+  "version": "1.0.6",
+  "description": "React Checkbox Menu Tree is a versatile and customizable tree menu component for React applications.",
+  "dependencies": {
+    "scroll-into-view": "^1.16.2",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "scroll-into-view": "^1.16.2",
+    "styled-components": "^5.3.6",
+    "web-vitals": "^2.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hoseinmohajer/checkbox-menu-tree.git"
+  },
+  "keywords": [
+    "reactjs-checkbox",
+    "react-menu-tree",
+    "checkbox-menu-tree",
+    "menu-tree",
+    "nested-object-menu-tree",
+    "recursive-menu-tree"
+  ],
+  "author": "HoseinMohajer",
+  "license": "MIT"
+}

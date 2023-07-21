@@ -1,0 +1,145 @@
+# React-Checkbox-Menu-Tree
+React Checkbox Menu Tree is a versatile and customizable tree menu component for Reactjs applications. It allows users to navigate through hierarchical data and select multiple nodes using checkboxes. This component is suitable for creating complex nested menus, category trees, or any other hierarchical data representation with selectable options, although you can access to each node data without using checkboxes with onClick function that is accessible on each node.
+
+## Donate
+Help me to stack sats! 
+
+0xB4B2008f50E945fA28a99f2A650a9bF97C3d55eC
+
+## Features
+
+Flexible Data Structure: The component supports a customizable approach to data, allowing you to define various properties for each node in the tree.
+
+
+Feature include:
+* Flexible approach to data, with customizable properties
+* Right-to-Left (RTL) Support: The tree menu can be displayed in right-to-left orientation, accommodating languages that require RTL layout.
+* Customizable Widgets: Each node can have a custom widget (React component) associated with it, enabling you to implement specific actions like opening a modal for individual nodes.
+* onClick Function Parameters: When a node is clicked, the onClick function is triggered, providing access to the data and ID of the checked node(s).
+* Optional Checkboxes: You can choose to include checkboxes for nodes, allowing users to select multiple items in the tree.
+* Customizable Icons: The component supports customizable icons. You can import your preferred icon package to display icons alongside node titles.
+* Optional Header: The tree menu can include an optional header, providing a title for the entire tree, although you can expand and collapse all nodes and search through all tree data within the search box field.
+
+[//]: # (* Customizable style and be able to handle theming)
+
+
+## Installation
+
+The easiest way to use react-checkbox-menu-tree is to install it from npm and build it into your app with Webpack.
+
+```bash  
+yarn add react-checkbox-menu-tree  
+```  
+or
+```bash  
+npm i --save react-checkbox-menu-tree  
+```  
+
+## Usage
+
+```javascript  
+import React from "react";  
+import ReactDOM from "react-dom/client";  
+import CheckboxTree from 'react-checkbox-menu-tree';  
+  
+const MockData = [  
+{  
+	id: 1954,  
+	title: "node num 1",  
+	description: "description about node num 1",  
+	checked: "NOT",  
+	tags: ['one', 'two', 'three'],
+	parentId: null,  
+	children: [],  
+},  
+{  
+	id: 1892,  
+	title: "node num 1",  
+	description: "descriptioin about node num 2",  
+	checked: "FULL",  
+	parentId: null,  
+	children: [  
+		{  
+			id: 1951,  
+			title: "node num 3",  
+			description: "description about node num 3",  
+			checked: "FULL",  
+			parentId: 1892,  
+			children: [],
+		},  
+	],  
+}];
+
+const widgetHandleClick = () => {
+	console.log('do something ...');
+};
+  
+const root = ReactDOM.createRoot(document.getElementById("root"));  
+root.render(  
+	<CheckboxTree  
+		data={MockData}  
+		loading={false}  
+		title="Menu Tree"  
+		hasCheckBox  
+		onClick={
+			(selectedNodesData, selectedNodesId) => {
+				console.log(selectedNodesData, selectedNodesId)
+			}
+		}  
+		disabled={false}  
+		headerLess={false}  
+		usingProperty={{  
+			id: "id",  
+			parentId: "parentId",  
+			title: "title",  
+			tags: "tags",  
+			description: "description",  
+			iconName: "iconName",  
+			children: "children",  
+			checked: "checked",  
+		}}  
+		leftSideWidget={()=> <button onClick={widgetHandleClick}>click me!</button>}  
+	/>  
+);  
+```  
+
+## Props
+
+* **data:** array of object that make the tree
+* **loading:** Boolean, showing skeleton loading while it is true
+* **title:** title of the tree component if headerLess is false
+* **hasCheckBox:** show checkboxes
+* **onClick:** a method with two arguments, first one is whole data of selected node and the other one is their ids
+* **disabled:** disabling onClick function of each node
+* **headerLess:** toggle the header of menu-tree
+* **usingProperty:** following properties are necessary in react-checkbox-menu-tree, so you can set appropriate property up to your data  (**optional**)
+  * **id:**  must be unique (**required**)
+  * **parentId:** the parent id (**required** for children)
+  * **title:** string | number  (**required**)
+  * **tags:** it is a flat array that showing below of each node's title if you define leftSideWidget otherwise showing in front of each node (**optional**)
+  * **description:** it is displayed at bottom of title (**optional**)
+  * **iconName:** It is displayed before the title, you should set your icon package. (**optional**)
+  * **children:** array of objects, each node of children must have a parentId (**optional**)
+  * **checked:** NOT | FULL | HAF (**required** if hasCheckBox will true)
+* **leftSideWidget:** a reactjs component that showed in front of each node to handle customizable action like open a modal (**optional**)
+
+### Notice
+  **usingProperty:** This built-in variable is used to specify the variables of each node that may exist in the data array with a different name. You can use this option to introduce the necessary variables required by react-checkbox-menu-tree component to it.
+  
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first  
+to discuss what you would like to change.
+Join me in making React-Checkbox-Menu-Tree even better.
+
+## Contact me
+
+If you have any questions or suggestions, please let me know
+
+hosein.mohajer@gmail.com
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
