@@ -42,7 +42,7 @@ npm i --save react-checkbox-menu-tree
 ```javascript  
 import React from "react";  
 import ReactDOM from "react-dom/client";  
-import CheckboxTree from 'react-checkbox-menu-tree';
+import MenuTree from 'react-checkbox-menu-tree';
 import customTheme from "./customTheme.ts";
   
 const MockData = [  
@@ -79,7 +79,7 @@ const widgetHandleClick = () => {
   
 const root = ReactDOM.createRoot(document.getElementById("root"));  
 root.render(  
-	<CheckboxTree  
+	<MenuTree  
 		data={MockData}  
 		loading={false}  
 		title="Menu Tree"  
@@ -138,6 +138,436 @@ root.render(
 ### Notice
 **propertiesMapper:** This built-in variable is used to specify the variables of each node that may exist in the data array with a different name. You can use this option to introduce the necessary variables required by react-checkbox-menu-tree component to it.
 
+## Examples
+### Simple
+
+```javascript  
+import React from "react";  
+import ReactDOM from "react-dom/client";  
+import MenuTree from 'react-checkbox-menu-tree';
+  
+const MockData = [
+  {
+    id: 1204,
+    title: "node_1",
+  },
+  {
+    id: 1205,
+    title: "node_2",
+    children: [
+      {
+        id: 1206,
+        title: "node_2_1",
+      },
+      {
+        id: 1207,
+        title: "node_2_2",
+      },
+    ],
+  },
+];
+  
+const root = ReactDOM.createRoot(document.getElementById("root"));  
+root.render(
+    <MenuTree
+        data={MockData}
+        title="Menu Tree"
+    /> 
+);  
+```  
+![img_1.png](assets/example_images/img_1.png)
+
+### Checkbox Menu Tree
+
+```javascript  
+import React from "react";  
+import ReactDOM from "react-dom/client";  
+import MenuTree from 'react-checkbox-menu-tree';
+  
+const MockData = [
+  {
+    id: 1204,
+    title: "node_1",
+    checked: "FULL",
+    parentId: null,
+  },
+  {
+    id: 1205,
+    title: "node_2",
+    checked: "HALF",
+    parentId: null,
+    children: [
+      {
+        id: 1206,
+        title: "node_2_1",
+        checked: "NOT",
+        parentId: 1205,
+      },
+      {
+        id: 1207,
+        title: "node_2_2",
+        checked: "FULL",
+        parentId: 1205,
+      },
+    ],
+  },
+  {
+    id: 1208,
+    title: "node_3",
+    checked: "FULL",
+    parentId: null,
+  },
+];
+  
+const root = ReactDOM.createRoot(document.getElementById("root"));  
+root.render(
+    <MenuTree
+        data={MockData}
+        title="Menu Tree"
+        hasCheckBox
+    /> 
+);  
+```  
+![img.png](assets/example_images/img.png)
+
+
+### Menu-Tree with leftSideWidget 
+
+```javascript  
+import React from "react";  
+import ReactDOM from "react-dom/client";  
+import MenuTree from 'react-checkbox-menu-tree';
+  
+const MockData = [
+  {
+    id: 1204,
+    title: "node_1",
+  },
+  {
+    id: 1205,
+    title: "node_2",
+    children: [
+      {
+        id: 1206,
+        title: "node_2_1",
+      },
+      {
+        id: 1207,
+        title: "node_2_2",
+      },
+    ],
+  },
+];
+  
+const root = ReactDOM.createRoot(document.getElementById("root"));  
+root.render(
+    <MenuTree
+        data={MockData}
+        title="Menu Tree"
+        leftSideWidget={(data) => {
+          return <button onClick={() => console.log("current node data:", data)}>click me</button>;
+        }}
+    /> 
+);  
+```  
+![img_2.png](assets/example_images/img_2.png)
+
+### Menu-Tree with onClick
+
+```javascript  
+import React from "react";  
+import ReactDOM from "react-dom/client";  
+import MenuTree from 'react-checkbox-menu-tree';
+  
+const MockData = [
+  {
+    id: 1204,
+    title: "node_1",
+  },
+  {
+    id: 1205,
+    title: "node_2",
+    children: [
+      {
+        id: 1206,
+        title: "node_2_1",
+      },
+      {
+        id: 1207,
+        title: "node_2_2",
+      },
+    ],
+  },
+];
+  
+const root = ReactDOM.createRoot(document.getElementById("root"));  
+root.render(
+    <MenuTree
+      data={MockData}
+      title="Menu Tree"
+      onClick={(data, ids) => {
+        console.log('data: ', data);
+        console.log('ids: ', ids);
+      }}
+    /> 
+);  
+```  
+**Notice:** The onClick functionality toggles the selected node. When a node is selected, the callback method returns the current node data; otherwise, it returns null.
+
+![img_3.png](assets/example_images/img_3.png)
+
+### Checkbox-Menu-Tree headerLess
+
+```javascript  
+import React from "react";  
+import ReactDOM from "react-dom/client";  
+import MenuTree from 'react-checkbox-menu-tree';
+  
+const MockData = [
+  {
+    id: 1204,
+    title: "node_1",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    checked: "FULL",
+    parentId: null,
+    tags: ['tag_1', 'tag_2'],
+  },
+  {
+    id: 1205,
+    title: "node_2",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    checked: "FULL",
+    tags: ['tag_1', 'tag_2', 'tag_3'],
+    parentId: null,
+    children: [
+      {
+        id: 1206,
+        title: "node_2_1",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        checked: "FULL",
+        parentId: 1205,
+      },
+      {
+        id: 1207,
+        title: "node_2_2",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        checked: "FULL",
+        parentId: 1205,
+      },
+    ],
+  },
+  {
+    id: 1208,
+    title: "node_3",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    checked: "FULL",
+    parentId: null,
+  },
+];
+  
+const root = ReactDOM.createRoot(document.getElementById("root"));  
+root.render(
+  <MenuTree
+    data={MockData}
+    headerLess
+    title="Menu Tree"
+    hasCheckBox
+  />
+);  
+```  
+![img_4.png](assets/example_images/img_4.png)
+
+### Checkbox-Menu-Tree propertiesMapper
+
+```javascript  
+import React from "react";  
+import ReactDOM from "react-dom/client";  
+import MenuTree from 'react-checkbox-menu-tree';
+  
+const MockData = [
+  {
+    id: 1204,
+    title: "node_1",
+    checked: "FULL",
+    parentId: null,
+  },
+  {
+    id: 1205,
+    title: "node_2",
+    checked: "FULL",
+    parentId: null,
+    repeat: [
+      {
+        id: 1206,
+        title: "node_2_1",
+        checked: "FULL",
+        parentId: 1205,
+      },
+      {
+        id: 1207,
+        title: "node_2_2",
+        checked: "FULL",
+        parentId: 1205,
+      },
+    ],
+  },
+  {
+    id: 1208,
+    title: "node_3",
+    checked: "FULL",
+  },
+];
+  
+const root = ReactDOM.createRoot(document.getElementById("root"));  
+root.render(
+  <MenuTree
+    data={MockData}
+    title="Menu Tree"
+    propertiesMapper={{
+      children: "repeat",
+    }}
+    hasCheckBox
+  />
+);  
+```  
+**Notice:** Sometimes, your data may have different property names, but the structure remains the same as recursive data. You might use different keys in your array of objects, which you can map using a propertyMapper. For example, instead of ‘children’, you might have ‘repeat’ in your object. By mapping it, everything works perfectly. 
+
+### React-Checkbox-Menu-Tree Complete Features
+
+```javascript  
+import React from "react";  
+import ReactDOM from "react-dom/client";  
+import MenuTree from 'react-checkbox-menu-tree';
+  
+const MockData = [
+  {
+    id: 1204,
+    title: "node_1",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    ticked: "FULL",
+    checkedStatus: "FULL",
+    parentId: null,
+    tags: ['tag_1', 'tag_2', 'tag_3'],
+    repeat: [],
+  },
+  {
+    id: 1205,
+    title: "node_2",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    ticked: "FULL",
+    checkedStatus: "FULL",
+    parentId: null,
+    repeat: [
+      {
+        id: 1206,
+        title: "node_2_1",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        ticked: "FULL",
+        checkedStatus: "FULL",
+        parentId: 1205,
+        repeat: [],
+      },
+      {
+        id: 1207,
+        title: "node_2_2",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        ticked: "FULL",
+        checkedStatus: "FULL",
+        parentId: 1205,
+        tags: ['tag_1', 'tag_2', 'tag_3'],
+        repeat: [],
+      },
+    ],
+  },
+  {
+    id: 1208,
+    title: "node_3",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    ticked: "FULL",
+    checkedStatus: "FULL",
+    parentId: null,
+    repeat: [],
+  },
+];
+
+const CustomTheme = {
+  name: 'custom-theme',
+  colors: {
+    white: '#FFFFFF',
+    white_200: '#f5f5f5',
+    white_300: '#e8e8e8',
+    white_500: '#eae9e9',
+    black_100: '#C9C9C9',
+    black_200: '#545454',
+    black_300: '#575757',
+    black_400: '#1E1E1E',
+    primary: '#238103',
+    secondary_100: '#c0d8df',
+    tertiary: '#ff4e05',
+    warning: '#ff0000',
+    shadow_100: '#f2f3f5',
+    shadow_200: '#bfbfbf',
+  },
+  fontSize: {
+    h5: "18px",
+    h6: "14px",
+    h8: "12px",
+  },
+  fontWeight: {
+    bold: "bold",
+    normal: 400,
+    high: 500,
+  },
+};
+
+const PropertiesMapper = {
+  id: "id",
+  title: "title",
+  description: "description",
+  checked: "ticked",
+  parentId: "parentId",
+  tags: "tags",
+  children: "repeat",
+  iconName: "iconName",
+}
+
+const Translation = {
+  result: "result",
+  resultCount: "result count",
+  close: "close",
+  search: "search",
+  closeAll: "close all",
+  openAll: "open all",
+}
+
+const handleClick = (data: TCallbackData, ids: TCallbackIds) => {
+  console.log('data: ', data);
+  console.log('ids: ', ids);
+}
+
+const handleWidgetClick = (data: TLeftSideWidgetData) => {
+  return <button onClick={() => console.log("current node data:", data)}>click me</button>;
+}
+  
+const root = ReactDOM.createRoot(document.getElementById("root"));  
+root.render(
+  <MenuTree
+    data={MockData}
+    title="Menu Tree"
+    leftSideWidget={handleWidgetClick}
+    onClick={handleClick}
+    hasCheckBox
+    loading={false}
+    headerLess={false}
+    disabled={false}
+    theme={CustomTheme}
+    propertiesMapper={PropertiesMapper}
+    translation={Translation}
+  />
+);  
+```  
+
+![img_5.png](assets/example_images/img_5.png)
 
 ## Contributing
 
