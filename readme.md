@@ -1,6 +1,9 @@
 # React-Checkbox-Menu-Tree
 React Checkbox Menu Tree is a versatile and customizable tree menu component for Reactjs applications. It allows users to navigate through hierarchical data and select multiple nodes using checkboxes. This component is suitable for creating complex nested menus, category trees, or any other hierarchical data representation with selectable options, although you can access to each node data without using checkboxes with onClick function that is accessible on each node.
 
+## Examples
+click [here](#https://hoseinmohajer.github.io/react-checkbox-menu-tree/) to see all the examples.
+
 ## Donate
 Help me to stack sats!
 
@@ -47,30 +50,30 @@ import customTheme from "./customTheme.ts";
   
 const MockData = [  
 {  
-	id: 1954,  
-	title: "node num 1",  
-	description: "description about node num 1",  
-	checked: "NOT",  
-	tags: ['one', 'two', 'three'],
-	parentId: null,  
-	children: [],  
+  id: 1954,  
+  title: "node num 1",  
+  description: "description about node num 1",  
+  checked: "NOT",  
+  tags: ['one', 'two', 'three'],
+  parentId: null,  
+  children: [],  
 },  
 {  
-	id: 1892,  
-	title: "node num 1",  
-	description: "descriptioin about node num 2",  
-	checked: "FULL",  
-	parentId: null,  
-	children: [  
-		{  
-			id: 1951,  
-			title: "node num 3",  
-			description: "description about node num 3",  
-			checked: "FULL",  
-			parentId: 1892,  
-			children: [],
-		},  
-	],  
+  id: 1892,  
+  title: "node num 1",  
+  description: "descriptioin about node num 2",  
+  checked: "FULL",  
+  parentId: null,  
+  children: [  
+    {  
+      id: 1951,  
+      title: "node num 3",  
+      description: "description about node num 3",  
+      checked: "FULL",  
+      parentId: 1892,  
+      children: [],
+    },  
+  ],  
 }];
 
 const widgetHandleClick = () => {
@@ -79,39 +82,39 @@ const widgetHandleClick = () => {
   
 const root = ReactDOM.createRoot(document.getElementById("root"));  
 root.render(  
-	<MenuTree  
-		data={MockData}  
-		loading={false}  
-		title="Menu Tree"  
-		hasCheckBox  
-		onClick={
-			(selectedNodesData, selectedNodesId) => {
-				console.log(selectedNodesData, selectedNodesId)
-			}
-		}  
-		disabled={false}  
-		headerLess={false}
-        propertiesMapper={{
-          id: "id",
-          title: "title",
-          description: "description",
-          checked: "checked",
-          parentId: "parentId",
-          tags: "tags",
-          children: "children",
-          iconName: "iconName",
-        }}  
-		leftSideWidget={()=> <button onClick={widgetHandleClick}>click me!</button>}
-        theme={customTheme}
-        translation={{
-          result: "result",
-          resultCount: "result count",
-          close: "close",
-          search: "search",
-          closeAll: "close all",
-          openAll: "open all",
-        }}
-	/>  
+  <MenuTree  
+    data={MockData}  
+    loading={false}  
+    title="Menu Tree"  
+    hasCheckBox  
+    onClick={
+      (selectedNodesData, selectedNodesId) => {
+        console.log(selectedNodesData, selectedNodesId)
+      }
+    }  
+    disabled={false}  
+    headerLess={false}
+    propertiesMapper={{
+      id: "id",
+      title: "title",
+      description: "description",
+      checked: "checked",
+      parentId: "parentId",
+      tags: "tags",
+      children: "children",
+      iconName: "iconName",
+    }}  
+    leftSideWidget={()=> <button onClick={widgetHandleClick}>click me!</button>}
+    theme={customTheme}
+    translation={{
+      result: "result",
+      resultCount: "result count",
+      close: "close",
+      search: "search",
+      closeAll: "close all",
+      openAll: "open all",
+    }}
+  />  
 );  
 ```  
 
