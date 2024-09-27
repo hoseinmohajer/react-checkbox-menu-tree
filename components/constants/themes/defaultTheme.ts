@@ -16,6 +16,16 @@ const defaultTheme = {
 		shadow_100: '#f2f3f5', // 0px 0px 6px ${({ theme }) => theme.colors.shadow_100};
 		shadow_200: '#bfbfbf', // 0px 0px 4px ${({ theme }) => theme.colors.shadow_200};
 	},
+	fontSize: {
+		h5: "14px",
+		h6: "12px",
+		h8: "10px",
+	},
+	fontWeight: {
+		bold: "bold",
+		normal: 400,
+		high: 500,
+	},
 };
 
 export default defaultTheme;

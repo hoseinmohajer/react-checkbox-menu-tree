@@ -2,13 +2,13 @@
 React Checkbox Menu Tree is a versatile and customizable tree menu component for Reactjs applications. It allows users to navigate through hierarchical data and select multiple nodes using checkboxes. This component is suitable for creating complex nested menus, category trees, or any other hierarchical data representation with selectable options, although you can access to each node data without using checkboxes with onClick function that is accessible on each node.
 
 ## Donate
-Help me to stack sats! 
+Help me to stack sats!
 
 0xB4B2008f50E945fA28a99f2A650a9bF97C3d55eC
 
 ## Features
 
-Flexible Data Structure: The component supports a customizable approach to data, allowing you to define various properties for each node in the tree.
+Flexible Data Structure: The component supports a customizable approach to data, allowing you to define various properties for each node in the tree, allowing you to define custom theme and set custom text for buttons title.
 
 
 Feature include:
@@ -19,6 +19,8 @@ Feature include:
 * Optional Checkboxes: You can choose to include checkboxes for nodes, allowing users to select multiple items in the tree.
 * Customizable Icons: The component supports customizable icons. You can import your preferred icon package to display icons alongside node titles.
 * Optional Header: The tree menu can include an optional header, providing a title for the entire tree, although you can expand and collapse all nodes and search through all tree data within the search box field.
+* Custom theme: You can set your custom theme with appropriate colors.
+* Custom text: You can set your custom text for some buttons title and some necessary text.
 
 [//]: # (* Customizable style and be able to handle theming)
 
@@ -40,7 +42,8 @@ npm i --save react-checkbox-menu-tree
 ```javascript  
 import React from "react";  
 import ReactDOM from "react-dom/client";  
-import CheckboxTree from 'react-checkbox-menu-tree';  
+import CheckboxTree from 'react-checkbox-menu-tree';
+import customTheme from "./customTheme.ts";
   
 const MockData = [  
 {  
@@ -87,18 +90,27 @@ root.render(
 			}
 		}  
 		disabled={false}  
-		headerLess={false}  
-		usingProperty={{  
-			id: "id",  
-			parentId: "parentId",  
-			title: "title",  
-			tags: "tags",  
-			description: "description",  
-			iconName: "iconName",  
-			children: "children",  
-			checked: "checked",  
-		}}  
-		leftSideWidget={()=> <button onClick={widgetHandleClick}>click me!</button>}  
+		headerLess={false}
+        propertiesMapper={{
+          id: "id",
+          title: "title",
+          description: "description",
+          checked: "checked",
+          parentId: "parentId",
+          tags: "tags",
+          children: "children",
+          iconName: "iconName",
+        }}  
+		leftSideWidget={()=> <button onClick={widgetHandleClick}>click me!</button>}
+        theme={customTheme}
+        translation={{
+          result: "result",
+          resultCount: "result count",
+          close: "close",
+          search: "search",
+          closeAll: "close all",
+          openAll: "open all",
+        }}
 	/>  
 );  
 ```  
@@ -112,7 +124,7 @@ root.render(
 * **onClick:** a method with two arguments, first one is whole data of selected node and the other one is their ids
 * **disabled:** disabling onClick function of each node
 * **headerLess:** toggle the header of menu-tree
-* **usingProperty:** following properties are necessary in react-checkbox-menu-tree, so you can set appropriate property up to your data  (**optional**)
+* **propertiesMapper:** following properties are necessary in react-checkbox-menu-tree, so you can set appropriate property up to your data  (**optional**)
   * **id:**  must be unique (**required**)
   * **parentId:** the parent id (**required** for children)
   * **title:** string | number  (**required**)
@@ -124,8 +136,8 @@ root.render(
 * **leftSideWidget:** a reactjs component that showed in front of each node to handle customizable action like open a modal (**optional**)
 
 ### Notice
-  **usingProperty:** This built-in variable is used to specify the variables of each node that may exist in the data array with a different name. You can use this option to introduce the necessary variables required by react-checkbox-menu-tree component to it.
-  
+**propertiesMapper:** This built-in variable is used to specify the variables of each node that may exist in the data array with a different name. You can use this option to introduce the necessary variables required by react-checkbox-menu-tree component to it.
+
 
 ## Contributing
 

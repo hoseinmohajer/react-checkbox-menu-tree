@@ -1,4 +1,6 @@
-const USING_PROPERTY = {
+import {TPropertiesMapper} from "../types/common.ts";
+
+const PROPERTIES_MAPPER: TPropertiesMapper = {
   id: "id",
   parentId: "parentId",
   title: "title",
@@ -9,4 +11,4 @@ const USING_PROPERTY = {
   checked: "checked",
 };
 
-export default USING_PROPERTY;
+export default PROPERTIES_MAPPER;

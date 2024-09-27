@@ -1,5 +1,8 @@
-import getPersianChar from "./getPersianChar";
-const highlighter = (keyword, string, currentNode) => {
+import getPersianChar from "./getPersianChar.js";
+
+
+const highlighter = (keyword: string, string: string, currentNode: boolean) => {
+
   let _keyword = getPersianChar(keyword);
   _keyword = _keyword.replace(/[.*+?^${}()|[\]\\]/gi, "\\$&");
 

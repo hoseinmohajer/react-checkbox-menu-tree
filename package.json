@@ -1,22 +1,32 @@
 {
   "name": "react-checkbox-menu-tree",
-  "version": "1.0.6",
+  "version": "1.1.2",
   "description": "React Checkbox Menu Tree is a versatile and customizable tree menu component for React applications.",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "react-scripts build"
+  },
   "dependencies": {
+    "gh-pages": "^6.1.1",
     "scroll-into-view": "^1.16.2",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/scroll-into-view": "^1.16.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "scroll-into-view": "^1.16.2",
     "styled-components": "^5.3.6",
+    "typescript": "^5.5.3",
     "web-vitals": "^2.1.4"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hoseinmohajer/checkbox-menu-tree.git"
+    "url": "https://github.com/hoseinmohajer/react-checkbox-menu-tree.git"
   },
   "keywords": [
     "reactjs-checkbox",
@@ -27,5 +37,6 @@
     "recursive-menu-tree"
   ],
   "author": "HoseinMohajer",
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://hoseinmohajer.github.io/react-checkbox-menu-tree/"
 }

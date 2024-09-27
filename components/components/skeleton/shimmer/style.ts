@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-import defaultTheme from "../../constants/themes/defaultTheme";
+import {TTheme} from "../../../types/common.ts";
+
+type TProps = {
+    theme?: TTheme
+}
 
 export const ShimmerWrapper = styled.div`
   position: absolute;
@@ -22,11 +26,12 @@ export const ShimmerWrapper = styled.div`
     }
   }
 `;
-export const Shimmer = styled.div`
+
+export const ShimmerStyled = styled.div<TProps>`
   width: 50%;
   height: 100%;
-  background-color: ${defaultTheme.colors.white_200};
+  background-color: ${({ theme }: {theme: TTheme}) => theme?.colors?.white_200};
   opacity: .7;
   transform: skewX(-20deg);
-    /* box-shadow: 0px 0px 6px ${defaultTheme.colors.shadow_100}; */
+    /* box-shadow: 0px 0px 6px ${({ theme }: {theme: TTheme}) => theme?.colors?.shadow_100}; */
 `;
