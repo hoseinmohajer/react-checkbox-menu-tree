@@ -2,7 +2,7 @@
 React Checkbox Menu Tree is a versatile and customizable tree menu component for Reactjs applications. It allows users to navigate through hierarchical data and select multiple nodes using checkboxes. This component is suitable for creating complex nested menus, category trees, or any other hierarchical data representation with selectable options, although you can access to each node data without using checkboxes with onClick function that is accessible on each node.
 
 ## Examples
-click [here](#https://hoseinmohajer.github.io/react-checkbox-menu-tree/) to see all the examples.
+click [here](https://hoseinmohajer.github.io/react-checkbox-menu-tree/) to see all the examples.
 
 ## Donate
 Help me to stack sats!

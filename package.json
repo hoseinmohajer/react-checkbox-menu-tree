@@ -1,6 +1,6 @@
 {
   "name": "react-checkbox-menu-tree",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "React Checkbox Menu Tree is a versatile and customizable tree menu component for React applications.",
   "scripts": {
     "predeploy": "npm run build",
