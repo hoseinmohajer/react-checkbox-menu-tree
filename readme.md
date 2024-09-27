@@ -438,6 +438,7 @@ root.render(
 import React from "react";  
 import ReactDOM from "react-dom/client";  
 import MenuTree from 'react-checkbox-menu-tree';
+import {TCallbackData, TCallbackIds, TLeftSideWidgetData} from "./types/common.ts";
   
 const MockData = [
   {
