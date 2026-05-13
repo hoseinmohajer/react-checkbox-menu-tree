@@ -64,14 +64,28 @@ export type TTheme = {
   };
 };
 
-type TTranslate = {
-  result:string;
-  resultCount:string;
-  close:string;
-  search:string;
-  closeAll:string;
-  openAll:string;
+export type TTranslate = {
+  result: string;
+  resultCount: string;
+  close: string;
+  search: string;
+  closeAll: string;
+  openAll: string;
 };
+
+/** Argument shape passed to `onClick` from the menu tree. */
+export type TCallbackData = Array<TData> | TData | null | undefined;
+
+/** ID argument shape passed to `onClick` from the menu tree. */
+export type TCallbackIds =
+  | Array<number | string>
+  | null
+  | number
+  | string
+  | undefined;
+
+/** Data passed to `leftSideWidget` for the current node. */
+export type TLeftSideWidgetData = Array<TData> | TData | undefined;
 
 export interface TMenuTreeProps {
   data: Array<TData>;

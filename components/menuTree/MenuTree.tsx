@@ -1,5 +1,4 @@
 import { useCallback } from "react";
-import "../fonts/fonts.css";
 import {
   MenuTreeMainContainer,
   Container,

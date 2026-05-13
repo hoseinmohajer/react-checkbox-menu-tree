@@ -4,7 +4,9 @@ React Checkbox Menu Tree is a versatile and customizable tree menu component for
 
 ## Examples
 
-click [here](https://hoseinmohajer.github.io/react-checkbox-menu-tree/) to see all the examples.
+Live sample (GitHub Pages): [hoseinmohajer.github.io/checkbox-menu-tree](https://hoseinmohajer.github.io/checkbox-menu-tree/)
+
+To host that sample from this repository, open **Settings → Pages** on GitHub and set the build source to **GitHub Actions**. Pushes to `main` run `.github/workflows/pages.yml`, which builds the Vite app under `sample/` and deploys the static output.
 
 ## Donate
 
@@ -44,6 +46,14 @@ or
 npm i --save react-checkbox-menu-tree
 ```
 
+## Styles
+
+Import the package stylesheet once in your app (fonts and layout used by the tree):
+
+```ts
+import "react-checkbox-menu-tree/style.css";
+```
+
 ## Usage
 
 ```javascript
@@ -54,7 +64,7 @@ import {
   TCallbackData,
   TCallbackIds,
   TLeftSideWidgetData,
-} from "./types/common.ts";
+} from "react-checkbox-menu-tree";
 
 const MockData = [
   {
@@ -523,7 +533,7 @@ import {
   TCallbackData,
   TCallbackIds,
   TLeftSideWidgetData,
-} from "./types/common.ts";
+} from "react-checkbox-menu-tree";
 
 const MockData = [
   {
