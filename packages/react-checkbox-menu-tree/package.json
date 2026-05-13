@@ -1,0 +1,63 @@
+{
+  "name": "react-checkbox-menu-tree",
+  "version": "2.0.0",
+  "description": "This package has been renamed to react-checktree. Please install react-checktree instead.",
+  "author": "Hosein Mohajer",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./style.css": {
+      "default": "./style.css"
+    }
+  },
+  "files": [
+    "dist",
+    "style.css"
+  ],
+  "dependencies": {
+    "react-checktree": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "prepublishOnly": "npm run build"
+  },
+  "deprecated": "This package has been renamed to react-checktree. Please install react-checktree instead.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hoseinmohajer/checkbox-menu-tree.git"
+  },
+  "homepage": "https://github.com/hoseinmohajer/checkbox-menu-tree#readme",
+  "bugs": {
+    "url": "https://github.com/hoseinmohajer/checkbox-menu-tree/issues"
+  },
+  "keywords": [
+    "react",
+    "checkbox",
+    "tree",
+    "menu-tree",
+    "deprecated",
+    "react-checktree"
+  ]
+}

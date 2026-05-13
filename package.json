@@ -1,11 +1,13 @@
 {
-  "name": "react-checkbox-menu-tree",
-  "version": "1.1.6",
-  "packageManager": "pnpm@10.28.1",
-  "description": "React Checkbox Menu Tree is a versatile and customizable tree menu component for React applications.",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "name": "react-checktree",
+  "author": "Hosein Mohajer",
+  "version": "2.0.0",
+  "description": "A lightweight, zero-dependency React tree menu component with hierarchical checkboxes, search, RTL/LTR support, and custom theming via CSS variables.",
+  "private": false,
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "import": {
@@ -14,66 +16,90 @@
       },
       "require": {
         "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "default": "./dist/index.cjs"
       }
     },
-    "./style.css": "./dist/react-checkbox-menu-tree.css"
+    "./style.css": "./dist/style.css"
   },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
   "sideEffects": [
     "**/*.css"
   ],
-  "files": [
-    "dist",
-    "readme.md",
-    "LICENSE"
-  ],
   "scripts": {
-    "build": "pnpm run build:lib",
-    "build:lib": "vite build --config vite.config.lib.ts && node ./scripts/copy-font-assets.mjs",
-    "build:sample": "vite build --config sample/vite.config.ts",
-    "dev:sample": "vite --config sample/vite.config.ts",
-    "prepublishOnly": "vite build --config vite.config.lib.ts && node ./scripts/copy-font-assets.mjs"
-  },
-  "dependencies": {
-    "scroll-into-view": "^1.16.2"
+    "dev": "vite",
+    "build": "vite build && tsc -p tsconfig.lib.json",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "peerDependencies": {
     "react": ">=17.0.0",
-    "react-dom": ">=17.0.0",
-    "styled-components": ">=5.0.0"
+    "react-dom": ">=17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    }
   },
   "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@types/scroll-into-view": "^1.16.4",
-    "@types/styled-components": "5.1.34",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "jsdom": "^29.1.1",
+    "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "styled-components": "^5.3.6",
     "typescript": "^5.5.3",
-    "vite": "^5.4.11",
-    "vite-plugin-dts": "^4.3.0"
+    "typescript-eslint": "^8.0.1",
+    "vite": "^5.4.1",
+    "vitest": "^2.1.9",
+    "storybook": "^10.3.6",
+    "@storybook/react-vite": "^10.3.6",
+    "@storybook/addon-a11y": "^10.3.6",
+    "@storybook/addon-docs": "^10.3.6",
+    "@storybook/addon-onboarding": "^10.3.6",
+    "eslint-plugin-storybook": "^10.3.6"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hoseinmohajer/checkbox-menu-tree.git"
+    "url": "https://github.com/hoseinmohajer/checkbox-menu-tree.git"
   },
+  "homepage": "https://hoseinmohajer.github.io/checkbox-menu-tree/",
   "bugs": {
     "url": "https://github.com/hoseinmohajer/checkbox-menu-tree/issues"
   },
   "keywords": [
-    "reactjs-checkbox",
-    "react-menu-tree",
-    "checkbox-menu-tree",
+    "react",
+    "react-component",
+    "tree",
+    "treeview",
+    "tree-menu",
+    "checkbox",
+    "checkbox-tree",
+    "checktree",
     "menu-tree",
-    "nested-object-menu-tree",
-    "recursive-menu-tree"
+    "hierarchical",
+    "nested-tree",
+    "recursive",
+    "rtl",
+    "searchable",
+    "lightweight",
+    "react-checkbox-menu-tree"
   ],
-  "author": "HoseinMohajer",
-  "license": "MIT",
-  "homepage": "https://hoseinmohajer.github.io/checkbox-menu-tree/",
-  "pnpm": {
-    "onlyBuiltDependencies": ["esbuild"]
-  }
+  "license": "MIT"
 }

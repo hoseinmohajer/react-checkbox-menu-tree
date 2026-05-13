@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "strict": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "emitDeclarationOnly": true,
+    "outDir": "dist",
+    "allowImportingTsExtensions": false
+  },
+  "include": [
+    "src/index.ts",
+    "src/menuTree/**/*",
+    "src/components/header/**/*",
+    "src/components/skeleton/**/*",
+    "src/types/**/*",
+    "src/helpers/**/*",
+    "src/assets/**/*",
+    "src/constants/**/*",
+    "src/styles.css"
+  ],
+  "exclude": [
+    "src/**/*.test.*",
+    "src/**/*.spec.*",
+    "src/test/**/*",
+    "src/App.tsx",
+    "src/main.tsx",
+    "src/MockData.ts",
+    "src/customTheme.ts"
+  ]
+}

@@ -1,4 +1,4 @@
-name: Deploy sample to GitHub Pages
+name: Deploy Storybook to GitHub Pages
 
 on:
   push:
@@ -30,13 +30,13 @@ jobs:
           cache: "pnpm"
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run build:sample
+      - run: pnpm run build-storybook
 
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: sample/dist
+          path: storybook-static
 
   deploy:
     environment:
