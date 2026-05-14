@@ -36,8 +36,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "prepublishOnly": "npm run build",
-    "publish:npm": "npm publish --registry https://registry.npmjs.org/ --access public",
-    "publish:github": "npm publish --userconfig ./.npmrc.gpr",
+    "publish:npm": "node scripts/publish-npmjs.mjs",
+    "publish:github": "npm publish",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -103,5 +103,8 @@
     "lightweight",
     "react-checkbox-menu-tree"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }

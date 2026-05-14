@@ -25,3 +25,11 @@ dist-ssr
 
 *storybook.log
 storybook-static
+
+# Transient backup from scripts/publish-npmjs.mjs if interrupted
+.npmrc.publish-npmjs.bak
+
+# Local secrets (never commit)
+.env
+.env.*
+!.env.example

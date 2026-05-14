@@ -24,7 +24,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # Project .npmrc + publishConfig target GitHub Packages per GitHub docs; strip for npmjs only.
       - name: Publish to npmjs
-        run: npm publish --access public
+        run: |
+          rm -f .npmrc
+          npm pkg delete publishConfig
+          npm publish --registry https://registry.npmjs.org/ --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
