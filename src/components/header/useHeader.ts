@@ -60,7 +60,6 @@ function collectAncestorIds(
 export const useHeader = (args: THeaderProps) => {
   const {
     nodeRef,
-    hiddenIds,
     searchResult,
     setHiddenIds,
     setSearchInputValue,

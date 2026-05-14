@@ -108,7 +108,7 @@ describe("showIcon prop", () => {
   });
 
   it("hides node icons when showIcon is false", () => {
-    const { container } = render(
+    render(
       <MenuTree nodes={simpleNodes} showIcon={false} />,
     );
     // No folder/file icon wrappers should be present (28x28 styled spans)
@@ -212,7 +212,6 @@ describe("checkbox behavior", () => {
       const checkboxes = row.parentElement.querySelectorAll("div");
       // Click the checkbox (the styled RowCheckbox)
       for (const el of checkboxes) {
-        const style = window.getComputedStyle(el);
         if (
           el.clientWidth <= 20 &&
           el.clientHeight <= 20 &&
@@ -466,7 +465,7 @@ describe("renderNodeActions", () => {
   });
 
   it("passes correct node data and state to renderNodeActions", () => {
-    const renderFn = vi.fn((_node, _state) => <span>Widget</span>);
+    const renderFn = vi.fn(() => <span>Widget</span>);
     render(<MenuTree nodes={nestedNodes} renderNodeActions={renderFn} />);
     expect(renderFn).toHaveBeenCalled();
     const firstCall = renderFn.mock.calls[0];

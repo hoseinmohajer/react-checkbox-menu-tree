@@ -515,7 +515,7 @@ export const PurpleTheme: Story = {
 /** Use `fieldNames` to map non-standard data shapes to the expected tree format. */
 export const CustomFieldNames: Story = {
   args: {
-    nodes: customFieldData as any,
+    nodes: customFieldData as unknown as TreeNode[],
     fieldNames: {
       id: "key",
       label: "title",
