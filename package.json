@@ -1,5 +1,5 @@
 {
-  "name": "react-checktree",
+  "name": "@hoseinmohajer/react-checkbox-menu-tree",
   "author": "Hosein Mohajer",
   "version": "1.1.6",
   "description": "A lightweight, zero-dependency React tree menu component with hierarchical checkboxes, search, RTL/LTR support, and custom theming via CSS variables.",
@@ -36,6 +36,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "prepublishOnly": "npm run build",
+    "publish:npm": "npm publish --registry https://registry.npmjs.org/ --access public",
+    "publish:github": "npm publish --userconfig ./.npmrc.gpr",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -77,11 +79,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hoseinmohajer/checkbox-menu-tree.git"
+    "url": "git+https://github.com/hoseinmohajer/react-checkbox-menu-tree.git"
   },
-  "homepage": "https://hoseinmohajer.github.io/checkbox-menu-tree/",
+  "homepage": "https://hoseinmohajer.github.io/react-checkbox-menu-tree/",
   "bugs": {
-    "url": "https://github.com/hoseinmohajer/checkbox-menu-tree/issues"
+    "url": "https://github.com/hoseinmohajer/react-checkbox-menu-tree/issues"
   },
   "keywords": [
     "react",

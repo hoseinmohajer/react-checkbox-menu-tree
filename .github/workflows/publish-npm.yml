@@ -1,0 +1,30 @@
+# Publishes to the public npm registry. Add an npm automation token as repo secret NPM_TOKEN.
+# https://docs.npmjs.com/trusted-publishers
+# https://docs.npmjs.com/creating-and-viewing-access-tokens
+
+name: Publish to npmjs
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Publish to npmjs
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
